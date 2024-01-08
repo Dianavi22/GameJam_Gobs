@@ -15,4 +15,8 @@ public class PlayerInteract : MonoBehaviour
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 }

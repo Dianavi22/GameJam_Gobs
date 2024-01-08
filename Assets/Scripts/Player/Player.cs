@@ -19,11 +19,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Client"))
         {
             _currentClient = collision.collider.gameObject.GetComponent<Client>();
+            Debug.Log("_currentFood" + _currentFood + " / " + "_currentClient._command" + _currentClient._command);
             if(_currentFood == _currentClient._command)
             {
                 Destroy(collision.collider);
                 // Add ref to GameManager with +1 client
                 _currentClient = null;
+
             }
             else
             {

@@ -7,6 +7,7 @@ public class SpawnClient : MonoBehaviour
 
     public GameObject objectToSpawn;  
     public Transform spawnPoint;
+    public bool isEmpty = true;
 
     private void Update()
     {
@@ -14,12 +15,17 @@ public class SpawnClient : MonoBehaviour
         {
             SpawnObject();
         }
+
+        if (isEmpty == true)
+        {
+            SpawnObject();
+        }
     }
     public void SpawnObject()
     {
-       
+
             Debug.Log("SPAWN");
             Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
-        
+            isEmpty = false;
     }
 }

@@ -8,7 +8,7 @@ public class Client : MonoBehaviour
     public int _command;
     private void Start()
     {
-        
+        ChoiceClient();
     }
 
      void ChoiceClient()

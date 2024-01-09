@@ -1,19 +1,20 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviour : MonoBehaviour
 {
-    private GameObject select;
+    private GameObject panel;
 
     void Awake()
     {
-        GameManager.OnGameStateChanged += GameManagerOnGameStateCHanged;
+        //GameManager.OnGameStateChanged += GameManagerOnGameStateCHanged;
     }
 
     void OnDestroy()
     {
-        GameManager.OnGameStateChanged -= GameManagerOnGameStateCHanged;
+        //GameManager.OnGameStateChanged -= GameManagerOnGameStateCHanged;
     }
 
     // Use this for initialization
@@ -26,6 +27,24 @@ public class NewMonoBehaviour : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        // OU bien on pourrait revenir sur la scène menu principal
+    }
+
+    public void Continue()
+    {
+       panel.SetActive(false);
+       Time.timeScale = 1;
+    }
+
+    public void Pause()
+    {
+        panel.SetActive(true);
+        Time.timeScale = 0;
     }
 
 

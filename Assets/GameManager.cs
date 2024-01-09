@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.Log("Instance of Null. Game manager if NULL");
+                Debug.Log("Instance of Null. Game manager is NULL");
             }
             return _instance;
         }
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Victory:
                 break;
+            case GameState.ServedInTime:
+                break;
+            case GameState.NotServedInTime:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
         }
@@ -61,7 +66,13 @@ public class GameManager : MonoBehaviour
 
     public void IsGameOver()
     {
+        
+    }
 
+    public void StartGame()
+    {
+        // Scene of the game
+        SceneManager.LoadScene("Scenes/JadeScene");
     }
 }
 
@@ -73,4 +84,6 @@ public enum GameState
     Play,
     TimerOver,
     TimerBonus,
+    ServedInTime,
+    NotServedInTime,
 }

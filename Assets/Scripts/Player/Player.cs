@@ -19,10 +19,17 @@ public class Player : MonoBehaviour
     [SerializeField] Image _spriteCurrrentObject;
     [SerializeField] Image _spriteCurrrentBackground;
 
+    [SerializeField] PlayerController _playerController;
+
 
     [SerializeField] Sprite _noneSprite;
     [SerializeField] Sprite _bg1;
     [SerializeField] Sprite _bg2;
+
+
+    [SerializeField] AudioClip _hitSound;
+    [SerializeField] AudioClip _takeItem;
+    [SerializeField] AudioSource _soundEffect;
 
     private void Start()
     {
@@ -37,9 +44,15 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Food"))
         {
             _standFood = collision.collider.gameObject.GetComponent<StandFood>();
-            _currentFood = _standFood.standFood;
-            _spriteCurrrentBackground.sprite = _bg1;
-            _spriteCurrrentObject.sprite = _standFood.sprite;
+            if (_standFood.standFood != _currentFood)
+            {
+                _currentFood = _standFood.standFood;
+                _spriteCurrrentBackground.sprite = _bg1;
+                _spriteCurrrentObject.sprite = _standFood.sprite;
+                _soundEffect.PlayOneShot(_takeItem, 0.6f);
+            }
+          
+
             _spriteCurrrentObject.enabled = true;
 
         }
@@ -53,8 +66,8 @@ public class Player : MonoBehaviour
 
                 idSpawner = _currentClient._spawner;
                 Destroy(collision.collider.gameObject);
-                Invoke("SpawnTaMere",0.5f);
-              
+                Invoke("SpawnTaMere", 0.5f);
+
                 Debug.Log("_currentClient._spawner " + _currentClient._spawner);
 
                 //StartCoroutine(SpawnClient());
@@ -74,12 +87,26 @@ public class Player : MonoBehaviour
                 Debug.Log("EMPTY");
 
             }
+
+
+
+
         }
 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            _spriteCurrrentObject.enabled = false;
+            _spriteCurrrentBackground.sprite = _bg2;
+            _soundEffect.PlayOneShot(_hitSound, 0.6f);
+            _currentFood = 100;
+            _playerController.enabled = false;
+            Invoke("ActivePlayerController", 0.3f);
+        }
+    }
 
-
-
-
+    public void ActivePlayerController()
+    {
+        _playerController.enabled = true;
     }
 
     public void SpawnTaMere()
@@ -102,13 +129,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        _itemSelectionned.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0,3.2f,0));
+        _itemSelectionned.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 3.2f, 0));
     }
 
     private void OnCollisionExit()
     {
-        if ( _standFood != null) { 
-        _standFood = null;
+        if (_standFood != null)
+        {
+            _standFood = null;
         }
         if (_currentClient != null)
         {
@@ -116,3 +144,5 @@ public class Player : MonoBehaviour
         }
     }
 }
+
+

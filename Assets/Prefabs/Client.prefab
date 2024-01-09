@@ -329,6 +329,8 @@ MonoBehaviour:
   _gfx: {fileID: 6517967786915414960}
   _collider: {fileID: 5073342670554036943}
   _spawnParticules: {fileID: 4678787595918402775}
+  _canvas: {fileID: 6525416559312852112}
+  _camera: {fileID: 0}
 --- !u!136 &5073342670554036943
 CapsuleCollider:
   m_ObjectHideFlags: 0

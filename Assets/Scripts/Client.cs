@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Client : MonoBehaviour
 {
-
+    public SpawnerManager spawnerManager;
     public int _command;
     public int _spawner;
     private void Start()
@@ -23,6 +23,11 @@ public class Client : MonoBehaviour
         {
           _spawner = GetComponent<Spawner>().idSpawner;
         }
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject, 20f);
     }
 
 }

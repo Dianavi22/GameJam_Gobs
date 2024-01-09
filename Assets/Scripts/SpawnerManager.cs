@@ -8,7 +8,7 @@ public class SpawnerManager : MonoBehaviour
     public GameObject objectToSpawn;  
     public int nbSpawn;
     public List<GameObject> spawnerList = new List<GameObject>();
-
+    public bool isEmpty;
     private void Update()
     {
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -29,7 +29,7 @@ public class SpawnerManager : MonoBehaviour
     {
 
             Debug.Log("SPAWN");
-            Instantiate(objectToSpawn, spawnerList[nbSpawn].transform.position, spawnerList[nbSpawn].transform.rotation);
-            
+            Instantiate(objectToSpawn, spawnerList[nbSpawn].transform.position, Quaternion.identity);
+        isEmpty = false;
     }
 }

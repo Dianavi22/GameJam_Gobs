@@ -23,43 +23,31 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Client"))
         {
-            Debug.Log("Detected");
 
             _currentClient = collision.collider.gameObject.GetComponent<Client>();
             if (_currentFood == _currentClient._command)
             {
+                Debug.Log("SpawnClient");
+
                 idSpawner = _currentClient._spawner;
-                Debug.Log("DestroyClient" + idSpawner);
-                StartCoroutine(SpawnClient());
+
+                _spawnerManager.SpawnObject(idSpawner);
                 Destroy(collision.collider.gameObject);
+                //StartCoroutine(SpawnClient());
                 // Add ref to GameManager with +1 client
                 _currentFood = 100;
-                _collider.enabled = false;
-                Invoke("DisableCollider", 0.3f);
 
             }
             else
             {
-                _collider.enabled = false;
-                Invoke("DisableCollider", 0.3f);
+               
                 _currentFood = 100;
             }
         }
 
 
-        IEnumerator SpawnClient()
-        {
-            new WaitForSeconds(0.5f);
-            Debug.Log(idSpawner);
-            _spawnerManager.SpawnObject(idSpawner);
-            yield return null;
-        }
 
-        void DisableCollider()
-        {
-            _collider.enabled = true;
 
-        }
 
     }
 

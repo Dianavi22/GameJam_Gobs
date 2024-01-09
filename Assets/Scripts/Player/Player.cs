@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] StandFood _standFood;
     [SerializeField] Client _currentClient;
     [SerializeField] SpawnerManager _spawnerManager;
-    [SerializeField] int idSpawner;
+    public int idSpawner;
     [SerializeField] Collider _collider;
     [SerializeField] GameObject _itemSelectionned;
     [SerializeField] GameObject _spawner;
@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip _takeItem;
     [SerializeField] AudioSource _soundEffect;
 
+    [SerializeField] GameObject prefab;
+    [SerializeField] GameObject bulletSpawn;
+
     private void Start()
     {
         _spriteCurrrentObject.enabled = false;
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour
             _standFood = collision.collider.gameObject.GetComponent<StandFood>();
             if (_standFood.standFood != _currentFood)
             {
+                prefab = _standFood.bullet;
                 _currentFood = _standFood.standFood;
                 _spriteCurrrentBackground.sprite = _bg1;
                 _spriteCurrrentObject.sprite = _standFood.sprite;
@@ -57,51 +61,40 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("Client"))
-        {
 
-            _currentClient = collision.collider.gameObject.GetComponent<Client>();
-            if (_currentFood == _currentClient._command)
-            {
-
-                idSpawner = _currentClient._spawner;
-                Destroy(collision.collider.gameObject);
-                Invoke("SpawnTaMere", 0.5f);
-
-                Debug.Log("_currentClient._spawner " + _currentClient._spawner);
-
-                //StartCoroutine(SpawnClient());
-                // Add ref to GameManager with +1 client
-                _currentFood = 100;
-                _spriteCurrrentObject.enabled = false;
-                _spriteCurrrentBackground.sprite = _bg2;
-                Debug.Log("EMPTY");
-
-
-            }
-            else
-            {
-                _spriteCurrrentObject.enabled = false;
-                _spriteCurrrentBackground.sprite = _bg2;
-                _currentFood = 100;
-                Debug.Log("EMPTY");
-
-            }
-
-
-
-
-        }
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            _spriteCurrrentObject.enabled = false;
-            _spriteCurrrentBackground.sprite = _bg2;
             _soundEffect.PlayOneShot(_hitSound, 0.6f);
-            _currentFood = 100;
+
+            LostItem();
             _playerController.enabled = false;
             Invoke("ActivePlayerController", 0.3f);
         }
+    }
+
+    public void IsGoodClient()
+    {
+        Invoke("SpawnTaMere", 0.5f);
+        //StartCoroutine(SpawnClient());
+        // Add ref to GameManager with +1 client
+        LostItem();
+    }
+    
+    public void ShootFood()
+    {
+        GameObject bullet = Instantiate(prefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+        Rigidbody rbBullet = bullet.GetComponent<Rigidbody>();
+        rbBullet.AddForce(transform.forward * 10f, ForceMode.Impulse);
+        LostItem();
+    }
+
+    public void LostItem()
+    {
+        _spriteCurrrentObject.enabled = false;
+        _spriteCurrrentBackground.sprite = _bg2;
+        _currentFood = 100;
+        prefab = null;
     }
 
     public void ActivePlayerController()
@@ -130,6 +123,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _itemSelectionned.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 3.2f, 0));
+
+        if (Input.GetButtonDown("Fire1") && prefab != null)
+        {
+            ShootFood();
+        }
     }
 
     private void OnCollisionExit()

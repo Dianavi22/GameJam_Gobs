@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodManager : MonoBehaviour
 {
-    [SerializeField]  List<string> foodList = new List<string>() { "candyFloss", "appleCandy", "cake", "chips", "coca" };
+    [SerializeField]  List<string> foodList = new List<string>() { "candyFloss", "appleCandy", "cake", "donut", "milkshake" };
 
 
 }

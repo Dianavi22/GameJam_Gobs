@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance
+    public static GameManager Instance;
+    /*public static GameManager Instance
     {
         get
         {
@@ -17,20 +17,21 @@ public class GameManager : MonoBehaviour
             }
             return _instance;
         }
-    }
+    }*/
 
     public GameState State;
 
     public static event Action<GameState> OnGameStateChanged;
 
-    private void Awake()
+    void Awake()
     {
-        _instance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        //_instance = this;
     }
 
     // Update is called once per frame
@@ -46,16 +47,25 @@ public class GameManager : MonoBehaviour
         switch(State)
         {
             case GameState.Play:
+                StartGame();
                 break;
             case GameState.Stop:
+                MenuManager.Instance.Pause();
+                break;
+            case GameState.Continue:
+                MenuManager.Instance.Continue();
                 break;
             case GameState.Lose:
+                /// Ne sera probablement pas gérer non plus, sauf si aucun clientn n'a été
+                /// servi durant toute la partie
                 break;
             case GameState.Victory:
+                // Ne sera probablement pas gérer
                 break;
             case GameState.ServedInTime:
                 break;
             case GameState.NotServedInTime:
+                // Afficher peut-être quelque chose ( ou non )
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
@@ -81,6 +91,7 @@ public enum GameState
     Victory,
     Lose,
     Stop,
+    Continue,
     Play,
     TimerOver,
     TimerBonus,

@@ -3,12 +3,15 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class NewMonoBehaviour : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     private GameObject panel;
 
+    public static MenuManager Instance;
+
     void Awake()
     {
+        Instance = this;
         //GameManager.OnGameStateChanged += GameManagerOnGameStateCHanged;
     }
 

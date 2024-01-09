@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject _spawner;
     [SerializeField] GameObject _spawner2;
     [SerializeField] GameObject _spawner3;
-    
+    [SerializeField] Image _spriteCurrrentObject;
 
 
     private void OnCollisionEnter(Collision collision)
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         {
             _standFood = collision.collider.gameObject.GetComponent<StandFood>();
             _currentFood = _standFood.standFood;
+            _spriteCurrrentObject.sprite = _standFood.sprite;
         }
 
         if (collision.gameObject.CompareTag("Client"))

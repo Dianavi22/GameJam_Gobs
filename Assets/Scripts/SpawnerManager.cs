@@ -15,7 +15,7 @@ public class SpawnerManager : MonoBehaviour
         //{
         //    SpawnObject();
         //}
-
+        
     }
 
     private void Start()

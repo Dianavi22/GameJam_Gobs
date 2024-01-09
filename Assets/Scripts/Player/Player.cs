@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] SpawnerManager _spawnerManager;
     [SerializeField] int idSpawner;
     [SerializeField] Collider _collider;
+    [SerializeField] GameObject _itemSelectionned;
 
 
     private void OnCollisionEnter(Collision collision)
@@ -27,9 +28,9 @@ public class Player : MonoBehaviour
             _currentClient = collision.collider.gameObject.GetComponent<Client>();
             if (_currentFood == _currentClient._command)
             {
-                Debug.Log("SpawnClient");
 
                 idSpawner = _currentClient._spawner;
+                Debug.Log("SpawnClient");
 
                 _spawnerManager.SpawnObject(idSpawner);
                 Destroy(collision.collider.gameObject);
@@ -49,6 +50,11 @@ public class Player : MonoBehaviour
 
 
 
+    }
+
+    private void Update()
+    {
+        _itemSelectionned.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0,3.2f,0));
     }
 
     private void OnCollisionExit()

@@ -10,8 +10,13 @@ public class Client : MonoBehaviour
     [SerializeField] GameObject _gfx;
     [SerializeField] Collider _collider;
     [SerializeField] ParticleSystem _spawnParticules;
+    [SerializeField] Canvas _canvas;
+
+    [SerializeField] Camera _camera;
     private void Start()
     {
+        _camera = FindObjectOfType<Camera>();
+        _canvas.GetComponent<Canvas>().worldCamera = _camera;
         _spawnParticules.Play();
         _collider.enabled = false;
         _gfx.SetActive(false);

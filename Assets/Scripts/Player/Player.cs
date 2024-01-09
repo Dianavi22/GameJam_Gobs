@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] int idSpawner;
     [SerializeField] Collider _collider;
     [SerializeField] GameObject _itemSelectionned;
+    [SerializeField] GameObject _spawner;
+    [SerializeField] GameObject _spawner2;
+    [SerializeField] GameObject _spawner3;
+    
 
 
     private void OnCollisionEnter(Collision collision)
@@ -30,10 +34,11 @@ public class Player : MonoBehaviour
             {
 
                 idSpawner = _currentClient._spawner;
-                Debug.Log("SpawnClient");
-
-                _spawnerManager.SpawnObject(idSpawner);
                 Destroy(collision.collider.gameObject);
+                Invoke("SpawnTaMere",0.5f);
+              
+                Debug.Log("_currentClient._spawner " + _currentClient._spawner);
+
                 //StartCoroutine(SpawnClient());
                 // Add ref to GameManager with +1 client
                 _currentFood = 100;
@@ -50,6 +55,24 @@ public class Player : MonoBehaviour
 
 
 
+    }
+
+    public void SpawnTaMere()
+    {
+        if (idSpawner == 0)
+        {
+            _spawner.GetComponent<SpawnerManager>().SpawnObject();
+        }
+        else if (idSpawner == 1)
+        {
+            _spawner2.GetComponent<SpawnerManager>().SpawnObject();
+
+        }
+        else
+        {
+            _spawner3.GetComponent<SpawnerManager>().SpawnObject();
+
+        }
     }
 
     private void Update()

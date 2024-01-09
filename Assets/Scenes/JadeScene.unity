@@ -285,6 +285,8 @@ GameObject:
   m_Component:
   - component: {fileID: 348472690}
   - component: {fileID: 348472691}
+  - component: {fileID: 348472692}
+  - component: {fileID: 348472693}
   m_Layer: 0
   m_Name: SpawnClient (2)
   m_TagString: Spawner
@@ -320,6 +322,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idSpawner: 2
+--- !u!135 &348472692
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348472688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &348472693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348472688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5e1cfd33595c942ac0a2319e975e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 6517967788394612375, guid: 46532975d3b1e8c4e8797fa0e1b7ca26, type: 3}
+  nbSpawn: 2
+  spawnerList: []
+  isEmpty: 0
 --- !u!1 &456196341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1398,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1023967624}
   - component: {fileID: 1023967625}
+  - component: {fileID: 1023967626}
+  - component: {fileID: 1023967627}
   m_Layer: 0
   m_Name: SpawnClient
   m_TagString: Spawner
@@ -1402,6 +1435,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idSpawner: 0
+--- !u!135 &1023967626
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023967623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1023967627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023967623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5e1cfd33595c942ac0a2319e975e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 6517967788394612375, guid: 7aa045f26a5b5024eba71dd3aef50c21, type: 3}
+  nbSpawn: 0
+  spawnerList: []
+  isEmpty: 0
 --- !u!1 &1122308616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1769,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1526796274}
   - component: {fileID: 1526796275}
+  - component: {fileID: 1526796276}
+  - component: {fileID: 1526796277}
   m_Layer: 0
   m_Name: SpawnClient (1)
   m_TagString: Spawner
@@ -1742,6 +1806,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idSpawner: 1
+--- !u!135 &1526796276
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526796272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1526796277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526796272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5e1cfd33595c942ac0a2319e975e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 6517967788394612375, guid: 3831bc39b6a6d4c4e8c8cd17cf3dcd98, type: 3}
+  nbSpawn: 1
+  spawnerList: []
+  isEmpty: 0
 --- !u!1 &1626594528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2337,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _spawner
+      value: 
+      objectReference: {fileID: 1023967623}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _spawner2
+      value: 
+      objectReference: {fileID: 1526796272}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _spawner3
+      value: 
+      objectReference: {fileID: 348472688}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _itemSelectionned
       value: 

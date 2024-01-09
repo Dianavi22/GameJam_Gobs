@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 997512024785668883}
   - component: {fileID: 5073342670554036943}
   m_Layer: 0
-  m_Name: Client
+  m_Name: Client 1
   m_TagString: Client
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerManager: {fileID: 0}
   _command: 0
-  _spawner: 0
+  _spawner: 1
   _gfx: {fileID: 6517967786915414960}
   _collider: {fileID: 5073342670554036943}
   _spawnParticules: {fileID: 4678787595918402775}

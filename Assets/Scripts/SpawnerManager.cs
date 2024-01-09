@@ -20,16 +20,14 @@ public class SpawnerManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnObject(0);
-        SpawnObject(1);
-        SpawnObject(2);
+        SpawnObject();
     }
 
-    public void SpawnObject(int nbSpawn)
+    public void SpawnObject()
     {
 
             Debug.Log("SPAWN");
-            Instantiate(objectToSpawn, spawnerList[nbSpawn].transform.position, Quaternion.identity);
+            Instantiate(objectToSpawn,transform.position, Quaternion.identity);
         isEmpty = false;
     }
 }

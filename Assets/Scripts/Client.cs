@@ -9,9 +9,10 @@ public class Client : MonoBehaviour
     public int _spawner;
     [SerializeField] GameObject _gfx;
     [SerializeField] Collider _collider;
-    [SerializeField] GameObject _itemSelectionned;
+    [SerializeField] ParticleSystem _spawnParticules;
     private void Start()
     {
+        _spawnParticules.Play();
         _collider.enabled = false;
         _gfx.SetActive(false);
         ChoiceClient();
@@ -26,7 +27,6 @@ public class Client : MonoBehaviour
     IEnumerator SpawnGfx()
     {
 
-        Debug.Log("HERE");
         new WaitForSeconds(1f);
         _collider.enabled = true;
         _gfx.SetActive(true);
@@ -35,9 +35,13 @@ public class Client : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("HERE");
+
         if (collision.gameObject.CompareTag("Spawner"))
         {
-          _spawner = GetComponent<Spawner>().idSpawner;
+          _spawner = collision.collider.GetComponent<Spawner>().idSpawner;
+            Debug.Log("spawner" + _spawner);
+
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6517967786551262321}
   m_Layer: 0
   m_Name: GFX
-  m_TagString: Client
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6517967786915414966}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Client
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _command: 0
+  _spawner: 0
 --- !u!136 &5073342670554036943
 CapsuleCollider:
   m_ObjectHideFlags: 0

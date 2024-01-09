@@ -14,9 +14,4 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
     }
-    //public void Move(Vector2 direction)
-    //{
-    //    _targetVelocity = new Vector2(direction * _speed, _rb.velocity.y);
-
-    //}
 }

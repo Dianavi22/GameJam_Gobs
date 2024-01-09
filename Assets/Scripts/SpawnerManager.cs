@@ -6,8 +6,7 @@ public class SpawnerManager : MonoBehaviour
 {
 
     public GameObject objectToSpawn;  
-    public Transform spawnPoint;
-
+    public int nbSpawn;
     public List<GameObject> spawnerList = new List<GameObject>();
 
     private void Update()
@@ -18,11 +17,19 @@ public class SpawnerManager : MonoBehaviour
         //}
 
     }
-    public void SpawnObject(int intdwd)
+
+    private void Start()
+    {
+        SpawnObject(0);
+        SpawnObject(1);
+        SpawnObject(2);
+    }
+
+    public void SpawnObject(int nbSpawn)
     {
 
             Debug.Log("SPAWN");
-            Instantiate(objectToSpawn, spawnerList[0].transform.position, spawnPoint.rotation);
+            Instantiate(objectToSpawn, spawnerList[nbSpawn].transform.position, spawnerList[nbSpawn].transform.rotation);
             
     }
 }

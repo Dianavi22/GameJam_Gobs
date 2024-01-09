@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 556732245425603604}
   - component: {fileID: 1411948558}
   - component: {fileID: 178259395}
-  - component: {fileID: 178259400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -245,7 +244,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd0dca07e672ca4da13cb34b72e5c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 178259400}
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4408405a-effb-4fd1-805d-e047aede50b0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveDirection: {x: 0, y: 0}
+  rb: {fileID: 556732245425603604}
+  speed: 10
 --- !u!54 &556732245425603604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,7 +270,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1411948558
 MonoBehaviour:
@@ -277,6 +287,9 @@ MonoBehaviour:
   _currentFood: 0
   _standFood: {fileID: 0}
   _currentClient: {fileID: 0}
+  _spawnerManager: {fileID: 0}
+  idSpawner: 0
+  _collider: {fileID: 8149977473429531862}
 --- !u!114 &178259395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,13 +297,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7408713881489042294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 673387e18ba68114488b6f12dec20b46, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -304,10 +317,10 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7408713881489042292}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Move
-        m_Mode: 0
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -323,18 +336,3 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &178259400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7408713881489042294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366d6d07c130efb4498ec19ca2e2ee26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 556732245425603604}
-  _speed: 5
-  _movementSmoothing: 0.05

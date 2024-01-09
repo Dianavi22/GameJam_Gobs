@@ -6,7 +6,7 @@ public class Client : MonoBehaviour
 {
 
     public int _command;
-    public GameObject _spawner;
+    public int _spawner;
     private void Start()
     {
         ChoiceClient();
@@ -14,14 +14,14 @@ public class Client : MonoBehaviour
 
      void ChoiceClient()
     {
-        _command = Random.Range(0, 5);
+        _command = Random.Range(0, 4);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Spawner"))
         {
-          _spawner = GetComponent<GameObject>();
+          _spawner = GetComponent<Spawner>().idSpawner;
         }
     }
 

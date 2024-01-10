@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
                 _currentFood = _standFood.standFood;
                 _spriteCurrrentBackground.sprite = _bg1;
                 _spriteCurrrentObject.sprite = _standFood.sprite;
-                _soundEffect.PlayOneShot(_takeItem, 0.6f);
+                _soundEffect.PlayOneShot(_takeItem, 0.4f);
             }
           
 
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            _soundEffect.PlayOneShot(_hitSound, 0.6f);
+            _soundEffect.PlayOneShot(_hitSound, 0.4f);
 
             LostItem();
             _playerController.enabled = false;

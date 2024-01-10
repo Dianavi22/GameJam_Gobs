@@ -36,7 +36,7 @@ public class TimerManager : MonoBehaviour
         isRunning = true;
     }
 
-    void IncreaseTimer()
+    public void IncreaseTimer()
     {
         
             seconds -= Time.deltaTime;

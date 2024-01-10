@@ -25,7 +25,7 @@ public class ScoreBoardMenu : MonoBehaviour
 
     void Update()
     {
-        if (_timer.seconds <=45)
+        if (_timer.seconds <=00)
         {
             GameOver();
         }

@@ -12,7 +12,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] int id;
     [SerializeField] Player player;
 
-    [SerializeField] private Collider playercollision;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -20,13 +19,11 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().GetComponent<Player>();
-        playercollision = FindObjectOfType<Player>().GetComponent<Collider>();
         bulletcollision = GetComponent<Collider>();
     }
     void Update()
     {
         Destroy(gameObject, 10f);
-        Physics.IgnoreCollision(playercollision, bulletcollision);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public int nbClients;
     [SerializeField] TMP_Text _nbClientsTxt;
+
+
     public static GameManager Instance
     {
         get
@@ -23,9 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public GameState State;
-
-    public static event Action<GameState> OnGameStateChanged;
+   
 
     private void Awake()
     {
@@ -41,49 +41,23 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _nbClientsTxt.text = nbClients.ToString();
+       
     }
 
-    public void UpdateGameState(GameState gameState)
-    {
-        State = gameState;
 
-        switch(State)
-        {
-            case GameState.Play:
-                break;
-            case GameState.Stop:
-                break;
-            case GameState.Lose:
-                break;
-            case GameState.Victory:
-                break;
-            case GameState.ServedInTime:
-                break;
-            case GameState.NotServedInTime:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
-        }
-
-        OnGameStateChanged?.Invoke(gameState);
-    }
 
     public void IsGameOver()
     {
         
     }
 
+    public void GameIsPause()
+    {
+
+    }
  
 }
 
-public enum GameState
-{
-    Victory,
-    Lose,
-    Stop,
-    Play,
-    TimerOver,
-    TimerBonus,
-    ServedInTime,
-    NotServedInTime,
-}
+
+
+

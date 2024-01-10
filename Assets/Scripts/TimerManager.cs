@@ -20,7 +20,7 @@ public class TimerManager : MonoBehaviour
     }
     void Start()
     {
-        seconds = 50;
+        seconds = 51;
         StartTimer();
     }
     void Update()

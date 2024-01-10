@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] bool isGamePaused = false;
     [SerializeField] GameObject _pauseMenu;
+    [SerializeField] Button _resumeButton;
+    [SerializeField] EventSystem _eventSysteme;
     void Start()
     {
 
@@ -21,6 +25,8 @@ public class PauseManager : MonoBehaviour
 
             {
                 Time.timeScale = 0f;
+                _eventSysteme.SetSelectedGameObject(_resumeButton.gameObject);
+
                 _pauseMenu.SetActive(true);
                 isGamePaused = true;
             }

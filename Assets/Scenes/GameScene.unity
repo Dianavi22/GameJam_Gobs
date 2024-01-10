@@ -3253,6 +3253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGamePaused: 0
   _pauseMenu: {fileID: 1605503638}
+  _resumeButton: {fileID: 176060614}
+  _eventSysteme: {fileID: 2027293644}
 --- !u!1 &1116417516
 GameObject:
   m_ObjectHideFlags: 0
@@ -8585,7 +8587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.925705, y: -60.135498}
+  m_AnchoredPosition: {x: -19.3, y: -59.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358023960
@@ -8601,7 +8603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8631,7 +8633,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1358023961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1669514561}
+        m_TargetAssemblyTypeName: ScoreBoardMenu, Assembly-CSharp
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1358023961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9216,11 +9230,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: {fileID: 1033175784}
   _gameManager: {fileID: 0}
-  _pauseManager: {fileID: 0}
+  _pauseManager: {fileID: 1106951421}
   _scoreBoard: {fileID: 97783478}
   _eventSysteme: {fileID: 2027293644}
   _retryButton: {fileID: 1358023960}
   _player: {fileID: 1042477676}
+  _eventSysteme2: {fileID: 1927589190}
+  _eventSysteme1: {fileID: 2027293642}
 --- !u!1 &1720205097
 GameObject:
   m_ObjectHideFlags: 0
@@ -9689,6 +9705,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868501172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1927589190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927589193}
+  - component: {fileID: 1927589192}
+  - component: {fileID: 1927589191}
+  m_Layer: 0
+  m_Name: EventSystem2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1927589191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927589190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+--- !u!114 &1927589192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927589190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 1358023958}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1927589193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927589190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1941542101
 GameObject:
   m_ObjectHideFlags: 0
@@ -9900,7 +9994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 176060612}
+  m_FirstSelected: {fileID: 1358023958}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &2027293645
@@ -14887,7 +14981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.103485, y: -60.135498}
+  m_AnchoredPosition: {x: 23.400002, y: -60.135498}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103199976
@@ -14933,7 +15027,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2103199977}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1669514561}
+        m_TargetAssemblyTypeName: ScoreBoardMenu, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2103199977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15087,6 +15193,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 635e4da29ca344247bbc6ba5a1eaffb8, type: 3}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _spawner
       value: 
       objectReference: {fileID: 1023967623}
@@ -15102,6 +15212,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1997936218}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _currentFood
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _soundEffect
       value: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0ca4a1a4a3f340f478012638b8f6aa0b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Genty Demo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9bad755e249703f4bb7c73774a1a9ca2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

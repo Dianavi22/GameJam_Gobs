@@ -7707,7 +7707,7 @@ GameObject:
   - component: {fileID: 1802513849}
   - component: {fileID: 1802513848}
   m_Layer: 0
-  m_Name: AudioSourceAlert
+  m_Name: AudioSourceSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13059,6 +13059,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _hello
+      value: 
+      objectReference: {fileID: 8300000, guid: 635e4da29ca344247bbc6ba5a1eaffb8, type: 3}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _spawner
       value: 
       objectReference: {fileID: 1023967623}
@@ -13077,7 +13081,11 @@ PrefabInstance:
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _soundEffect
       value: 
-      objectReference: {fileID: 636039296}
+      objectReference: {fileID: 1802513848}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _spawnClient
+      value: 
+      objectReference: {fileID: 8300000, guid: c5b7315a25d9eca419133465233ba7ba, type: 3}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _itemSelectionned
       value: 

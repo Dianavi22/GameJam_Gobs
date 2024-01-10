@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip _hitSound;
     [SerializeField] AudioClip _takeItem;
     [SerializeField] AudioClip _shootItem;
+    [SerializeField] AudioClip _hello;
+    [SerializeField] AudioClip _spawnClient;
     [SerializeField] AudioSource _soundEffect;
 
     [SerializeField] GameObject prefab;
@@ -82,7 +84,20 @@ public class Player : MonoBehaviour
         gameManager.nbClients++;
         LostItem();
     }
-    
+
+    public IEnumerator SoundClients()
+    {
+        _soundEffect.PlayOneShot(_spawnClient, 1.1f);
+        Invoke("PlayHello", 0.3f);
+        yield return null;
+    }
+
+    public void PlayHello()
+    {
+        _soundEffect.PlayOneShot(_hello, 0.6f);
+
+    }
+
     public void ShootFood()
     {
         _soundEffect.PlayOneShot(_shootItem, 0.4f);
@@ -122,6 +137,7 @@ public class Player : MonoBehaviour
             _spawner3.GetComponent<SpawnerManager>().SpawnObject();
 
         }
+        StartCoroutine(SoundClients());
     }
 
     private void Update()

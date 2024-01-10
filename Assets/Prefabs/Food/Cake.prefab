@@ -129,11 +129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04bddc38c9e81143a42204616ed95a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 5021315887718010160}
+  bulletcollision: {fileID: 0}
   _gfx: {fileID: 8048338037621805101}
   _destroyParticules: {fileID: 2896674343963723850}
   _client: {fileID: 0}
   id: 2
+  player: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _hitWall: {fileID: 8300000, guid: 52f4049c7e161cc47a79d7972bb1f39a, type: 3}
 --- !u!1 &8048338037621805101
 GameObject:
   m_ObjectHideFlags: 0

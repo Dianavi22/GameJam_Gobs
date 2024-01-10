@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] Client _client;
     [SerializeField] int id;
     [SerializeField] Player player;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _hitWall;
 
     // Start is called before the first frame update
 
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().GetComponent<Player>();
+        _audioSource = FindObjectOfType<AudioManager>().GetComponent<AudioSource>();
         bulletcollision = GetComponent<Collider>();
     }
     void Update()
@@ -28,14 +31,15 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Food") || collision.gameObject.CompareTag("Wall") )
+        if (collision.gameObject.CompareTag("Food") || collision.gameObject.CompareTag("Wall"))
         {
+            _audioSource.PlayOneShot(_hitWall, 0.6f);
             DestroyBullet();
         }
         if (collision.gameObject.CompareTag("Client"))
         {
             _client = collision.collider.GetComponent<Client>();
-            if(id == _client._command)
+            if (id == _client._command)
             {
                 player.idSpawner = _client._spawner;
                 player.IsGoodClient();
@@ -46,6 +50,15 @@ public class Bullet : MonoBehaviour
             else
             {
                 DestroyBullet();
+                _audioSource.PlayOneShot(_hitWall, 0.6f);
+
+            }
+
+            if (collision.gameObject.CompareTag("Floor"))
+            {
+                DestroyBullet();
+                _audioSource.PlayOneShot(_hitWall, 0.6f);
+
             }
         }
     }

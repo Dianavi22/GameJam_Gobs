@@ -8,6 +8,7 @@ TagManager:
   - Client
   - Spawner
   - Wall
+  - Floor
   layers:
   - Default
   - TransparentFX

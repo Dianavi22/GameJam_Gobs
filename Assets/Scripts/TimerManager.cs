@@ -1,80 +1,60 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TimerManager : MonoBehaviour
 {
 
-    private static TimerManager _instance;
+    [SerializeField] bool isGameFinished;
+    public float seconds;
+    private bool isRunning = false;
+    public TMP_Text scoreText;
 
-    public static TimerManager Instance
+
+    private void Awake()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                Debug.Log("Instance of Null. TimerManager is NULL");
-            }
-
-            return _instance;
-        }
+      
     }
-    
-    [SerializeField] private TextMeshProUGUI TimerText;
-    //[SerializeField] public int ServingTime;
-    public static int ServingTime;
-    private float ElapsedTime;
-    [SerializeField] private float TimeLeft;
-    public static float TimerLeftTime;
-    
-    /// <summary>
-    ///  This can be second bonus win if player has served in time, otherwise
-    ///  we will pass here number of secoonds of penality received
-    /// </summary>
-    public static float SecondOfPenalityOrBonus;
-
-    public static bool IsPenalized;
-    public static bool IsBonus;
-
-    // Use this for initialization
     void Start()
     {
-        ServingTime = 5;
+        seconds = 50;
+        StartTimer();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.State == GameState.Play)
+        if (isRunning && isGameFinished == false)
         {
-            if (TimeLeft > 0)
-            {
-                TimeLeft -= Time.deltaTime;
-                if (ServingTime > 0)
-                {
-                    ServingTime--;
-                }
-                UpdateTimer(TimeLeft);
-            } else
-            {
-                Debug.LogWarning("Time is UP !");
-                TimeLeft = 0;
-                TimerLeftTime = TimeLeft;
-                //GameManager.OnGameStateChanged += GameManagerOnTimeUp;
-            }
+            IncreaseTimer();
         }
     }
 
-    private void UpdateTimer(float currentTime)
+    void StartTimer()
     {
-        currentTime += 1;
-        if (IsPenalized)
-        {
-            currentTime -= SecondOfPenalityOrBonus;
-        }
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        TimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        isRunning = true;
     }
+
+    void IncreaseTimer()
+    {
+        
+            seconds -= Time.deltaTime;
+            //decompte
+            //seconds -= Time.deltaTime;
+         //   scoreText.text = seconds.ToString();
+            float minute = Mathf.FloorToInt(seconds / 60);
+            float sec = Mathf.FloorToInt(seconds % 60);
+            if (sec < 10)
+            {
+                scoreText.text = minute + " : 0" + sec.ToString();
+            }
+            else
+            {
+                scoreText.text = minute + " : " + sec.ToString();
+            }
+        
+    }
+
 
 }

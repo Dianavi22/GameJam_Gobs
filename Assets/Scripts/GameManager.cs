@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+
+    public int nbClients;
+    [SerializeField] TMP_Text _nbClientsTxt;
     public static GameManager Instance
     {
         get
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _nbClientsTxt.text = nbClients.ToString();
     }
 
     public void UpdateGameState(GameState gameState)

@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject bulletSpawn;
 
+    [SerializeField] GameManager gameManager;
+
     private void Start()
     {
         _spriteCurrrentObject.enabled = false;
@@ -76,8 +78,7 @@ public class Player : MonoBehaviour
     public void IsGoodClient()
     {
         Invoke("SpawnTaMere", 0.5f);
-        //StartCoroutine(SpawnClient());
-        // Add ref to GameManager with +1 client
+        gameManager.nbClients++;
         LostItem();
     }
     

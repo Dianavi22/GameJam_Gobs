@@ -73,11 +73,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGame()
-    {
-        // Scene of the game
-        SceneManager.LoadScene("Scenes/JadeScene");
-    }
+ 
 }
 
 public enum GameState

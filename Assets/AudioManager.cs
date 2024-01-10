@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] TimerManager _timer;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSourceSound;
+    [SerializeField] AudioClip _alert;
+    [SerializeField] bool isAlarm = false;
     void Start()
     {
         
@@ -13,6 +17,14 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(_timer.seconds <= 15)
+        {
+            _audioSource.pitch = 1.3f;
+            if (!isAlarm)
+            {
+                _audioSourceSound.PlayOneShot(_alert, 0.5f);
+                isAlarm = true;
+            }
+        }
     }
 }

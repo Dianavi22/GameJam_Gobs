@@ -6,5 +6,7 @@ public class StandFood : MonoBehaviour
 {
     public int standFood = 0;
     public Sprite sprite;
+    public GameObject bullet;
+
 
 }

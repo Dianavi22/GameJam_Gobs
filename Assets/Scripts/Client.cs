@@ -12,6 +12,7 @@ public class Client : MonoBehaviour
     [SerializeField] ParticleSystem _spawnParticules;
     [SerializeField] Canvas _canvas;
 
+
     [SerializeField] Camera _camera;
     private void Start()
     {

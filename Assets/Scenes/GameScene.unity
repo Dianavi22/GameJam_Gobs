@@ -749,7 +749,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1121,6 +1121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standFood: 4
   sprite: {fileID: -453337623, guid: d3564300a22136740a71548968d5f0c2, type: 3}
+  bullet: {fileID: 5021315887718010161, guid: da59134d6a5657445b1c4869be89bebb, type: 3}
 --- !u!65 &821594538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1399,6 +1400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standFood: 0
   sprite: {fileID: -1456585176, guid: d3564300a22136740a71548968d5f0c2, type: 3}
+  bullet: {fileID: 5021315887718010161, guid: 4595efdf6351fdb46aa3a40df8af60db, type: 3}
 --- !u!1 &997008448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1630,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013665116}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1020213155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 747499465962069007, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+  m_PrefabInstance: {fileID: 7408713880970221023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023967623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standFood: 2
   sprite: {fileID: 791779618, guid: d3564300a22136740a71548968d5f0c2, type: 3}
+  bullet: {fileID: 5021315887718010161, guid: 7c8d76e6374692f48b1d2cac6fcf6db0, type: 3}
 --- !u!65 &1122308618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6754,6 +6762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standFood: 3
   sprite: {fileID: -842157755, guid: d3564300a22136740a71548968d5f0c2, type: 3}
+  bullet: {fileID: 5021315887718010161, guid: e521c44666654f244a51cbf57ba690e4, type: 3}
 --- !u!65 &1473222065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7000,6 +7009,37 @@ MonoBehaviour:
   - {fileID: 1526796272}
   - {fileID: 348472688}
   isEmpty: 0
+--- !u!1 &1688070150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688070151}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688070151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688070150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1020213155}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720205097
 GameObject:
   m_ObjectHideFlags: 0
@@ -7173,6 +7213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standFood: 1
   sprite: {fileID: -190894394, guid: d3564300a22136740a71548968d5f0c2, type: 3}
+  bullet: {fileID: 5021315887718010161, guid: 0bbbc622aab6ebc439dbc49ff70dfecb, type: 3}
 --- !u!65 &1828875684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7469,6 +7510,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b0d0fd0b5591c1547b8fd67f21e10dc1, type: 3}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 5021315887718010161, guid: da59134d6a5657445b1c4869be89bebb, type: 3}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _spawner
       value: 
       objectReference: {fileID: 1023967623}
@@ -7485,9 +7530,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 348472688}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: _takeItem
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cba7ad3b24314d47ba978268a2d0e9c, type: 3}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _noneSprite
       value: 
       objectReference: {fileID: 21300000, guid: 95fd01dbb4b1c8b4b943f0b18568fd47, type: 3}
+    - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 1688070150}
     - target: {fileID: 1411948558, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: _soundEffect
       value: 
@@ -7631,6 +7684,10 @@ PrefabInstance:
     - target: {fileID: 7408713881489042294, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149977473429531862, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8818533128374520813, guid: 2804d1168163bf248b4f5b3298de275b, type: 3}
       propertyPath: m_Camera

@@ -20,13 +20,10 @@ public class MenuManager : MonoBehaviour
 
     public void LaunchGame()
     {
-        SceneManager.LoadScene(1);
-    }
-    public void Controls()
-    {
         SceneManager.LoadScene(2);
 
     }
+   
     public void Credits()
     {
         SceneManager.LoadScene(3);

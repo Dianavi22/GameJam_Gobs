@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1688070150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688070151}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688070151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688070150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747499465962069007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3234803023357320405
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +61,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.336, z: 0.518}
   m_LocalScale: {x: 0.47507387, y: 0.47507387, z: 0.47507387}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1688070151}
   m_Father: {fileID: 7408713881278495476}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,7 +125,7 @@ SphereCollider:
   m_GameObject: {fileID: 3234803023357320405}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -208,7 +240,6 @@ GameObject:
   - component: {fileID: 7408713881489042292}
   - component: {fileID: 556732245425603604}
   - component: {fileID: 1411948558}
-  - component: {fileID: 178259395}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -290,49 +321,20 @@ MonoBehaviour:
   _spawnerManager: {fileID: 0}
   idSpawner: 0
   _collider: {fileID: 8149977473429531862}
---- !u!114 &178259395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7408713881489042294}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 673387e18ba68114488b6f12dec20b46, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 63b98ecb-667c-4e2b-969d-d2a521450a05
-    m_ActionName: Gameplay/Move[/XInputControllerWindows/leftStick]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  _itemSelectionned: {fileID: 0}
+  _spawner: {fileID: 0}
+  _spawner2: {fileID: 0}
+  _spawner3: {fileID: 0}
+  _spriteCurrrentObject: {fileID: 0}
+  _spriteCurrrentBackground: {fileID: 0}
+  _playerController: {fileID: 7408713881489042292}
+  _noneSprite: {fileID: 21300000, guid: 95fd01dbb4b1c8b4b943f0b18568fd47, type: 3}
+  _bg1: {fileID: 21300000, guid: 6275f847902d80e49a2d46c4d364d147, type: 3}
+  _bg2: {fileID: 21300000, guid: b0d0fd0b5591c1547b8fd67f21e10dc1, type: 3}
+  _hitSound: {fileID: 8300000, guid: 83a7f83608997ad42a250fce0c796824, type: 3}
+  _takeItem: {fileID: 8300000, guid: 7cba7ad3b24314d47ba978268a2d0e9c, type: 3}
+  _shootItem: {fileID: 8300000, guid: 193e91ef92dcea74cacd6999476baf7d, type: 3}
+  _soundEffect: {fileID: 0}
+  prefab: {fileID: 5021315887718010161, guid: da59134d6a5657445b1c4869be89bebb, type: 3}
+  bulletSpawn: {fileID: 1688070150}
+  gameManager: {fileID: 0}

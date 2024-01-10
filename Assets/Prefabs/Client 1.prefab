@@ -330,6 +330,8 @@ MonoBehaviour:
   _collider: {fileID: 5073342670554036943}
   _spawnParticules: {fileID: 4678787595918402775}
   _canvas: {fileID: 6917545117303760898}
+  _clip: {fileID: 8300000, guid: 635e4da29ca344247bbc6ba5a1eaffb8, type: 3}
+  _audioSource: {fileID: 0}
   _camera: {fileID: 0}
 --- !u!136 &5073342670554036943
 CapsuleCollider:

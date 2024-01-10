@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] AudioClip _hitSound;
     [SerializeField] AudioClip _takeItem;
+    [SerializeField] AudioClip _shootItem;
     [SerializeField] AudioSource _soundEffect;
 
     [SerializeField] GameObject prefab;
@@ -84,6 +85,8 @@ public class Player : MonoBehaviour
     
     public void ShootFood()
     {
+        _soundEffect.PlayOneShot(_shootItem, 0.4f);
+
         GameObject bullet = Instantiate(prefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
         Rigidbody rbBullet = bullet.GetComponent<Rigidbody>();
         rbBullet.AddForce(transform.forward * 10f, ForceMode.Impulse);

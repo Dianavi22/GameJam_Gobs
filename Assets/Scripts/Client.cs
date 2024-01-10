@@ -11,12 +11,15 @@ public class Client : MonoBehaviour
     [SerializeField] Collider _collider;
     [SerializeField] ParticleSystem _spawnParticules;
     [SerializeField] Canvas _canvas;
-
+    [SerializeField] AudioClip _clip;
+    [SerializeField] AudioSource _audioSource;
 
     [SerializeField] Camera _camera;
     private void Start()
     {
         _camera = FindObjectOfType<Camera>();
+        _audioSource = FindObjectOfType<AudioManager>().GetComponent<AudioSource>();
+        _audioSource.PlayOneShot(_clip);
         _canvas.GetComponent<Canvas>().worldCamera = _camera;
         _spawnParticules.Play();
         _collider.enabled = false;
